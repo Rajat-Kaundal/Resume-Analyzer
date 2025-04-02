@@ -7,12 +7,23 @@ const Upload = () => {
         setFile(e.target.files[0]);
     };
 
-    const handleUpload = () => {
+    const handleUpload = async () => {
         if (!file){
             alert("Select a file first");
             return;
         }
-        console.log("Uploading your file", file);
+        const formData = new FormData();
+        formData.append("resume", file);
+
+        const response = await fetch("http://localhost:5000/upload",{
+            method : "POST",
+            body : formData,
+        });
+        
+        const data = await response.json();
+        console.log("AI analysis failed");
+        alert("AI Analysis: " + data.analysis);
+
     };
 
     return (

@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
+import Upload from "./components/Upload";
 
 function App() {
   /*const [count, setCount] = useState(0) */
@@ -14,6 +15,7 @@ function App() {
       <header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Upload" element={<Upload />}></Route>
       </Routes>
     </Router>
   );
